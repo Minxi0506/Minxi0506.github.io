@@ -36,40 +36,94 @@
 
     a.style {
     	font-size: 30px;
-		text-align: center;
+		display:none
 	}
 
 </style>
 
 <!DOCTYPE html>
 <html>
+
+	<head>
+		<script src="jquery-3.6.1.js"></script>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+	</head>
+
  	<title>Minxi's Websiter</title>
  	<body>
-	<h1 style="color:#FF5959;">Minxi's Website</h1>
-	<img src="https://shoplineimg.com/5b0512a072fdc057d0002c31/6087bf30111334003e66b7f2/600x.webp?source_format=jpeg" style="display:block; margin:auto; width: 300px;border-radius: 15px;">
 
-	<div>
-	<hr class="style"/>
-	<p class="pstyle">
-		學校: 輔仁大學<br>
-		科系: 資訊工程學系<br>
-		興趣: 看小說、唱歌<br>
-	</p>
+ 	<div id="div0" style="background-color:#FFF2F2; height:100%;" class="animate__animated animate__fadeInDown">
+		<h1 style="color:#FF5959; justify-content:center; font-size: 70px; height:70%;display:flex; align-items:center;">Welcome to Minxi's Website</h1>
+		<center><button id="check" class="btn btn-default target" style="color:#FF5959; justify-content:center; font-size: 60px;display:flex; background-color:#FFBFBF; border-radius:10px; border-color:#FF2626;">進入網頁</button></center>
 	</div>
 
-	<div style="text-align:center">
-  		<a class="style"; href="https://shoplineimg.com/5b0512a072fdc057d0002c31/6087bf30111334003e66b7f2/600x.webp?source_format=jpeg">Click me to see photo</a>
+	<div id="div1"> <h1 style="color:#FF5959;">Minxi's Website</h1> </div>
+
+	<div id="div2" style="display:none">
+		<img src="https://shoplineimg.com/5b0512a072fdc057d0002c31/6087bf30111334003e66b7f2/600x.webp?source_format=jpeg" style="display:block; margin:auto; width: 300px;border-radius: 15px;">
 	</div>
 
-	<hr class="style"/>
-	<p class="p2style">
-		<br>
-		<br>
-		Contact me:<br>
-		minxi0506@gmail.com<br>
-	</p>
+	<br>
+	<div id="bigdiv">
+		<div id="div3" style="display:none">
+			<hr class="style"/>
+			<p class="pstyle">
+				學校: 輔仁大學<br>
+				科系: 資訊工程學系<br>
+				興趣: 看小說、唱歌<br>
+			</p>
+			<hr class="style"/>
+		</div>
 
-  </body>
+		<br>
+	  	<center><a id="a1" class="style"; href="https://shoplineimg.com/5b0512a072fdc057d0002c31/6087bf30111334003e66b7f2/600x.webp?source_format=jpeg">Click me to see photo</a></center>
+
+	  	<br>
+	  	<br>
+  	</div>
+
+  	<center><button id="close" class="btn btn-default target" style="color:#FF5959; justify-content:center; font-size: 20px;display:flex; background-color:#FFBFBF; border-radius:10px; border-color:#FF2626; display: none">隱藏資訊</button></center>
+
+	<div id="div4" style="display:none">
+		<p class="p2style">
+			<br>
+			Contact me:<br>
+			minxi0506@gmail.com<br>
+		</p>
+	</div>
+
+
+
+	<script>
+
+		$("#check").click(function() {
+		  $("#div0").fadeOut();
+		  document.querySelector('#div1').classList.add('animate__animated', 'animate__backInUp');
+		  setTimeout(function(){$("#div2").fadeIn('slow');},1200);
+		  setTimeout(function(){
+		  	$("#div3").css("display","");
+		  	document.querySelector('#div3').classList.add('animate__animated', 'animate__fadeInLeft');},1800);
+		  setTimeout(function(){$("#a1").fadeIn('slow');},2600);
+		  setTimeout(function(){$("#div4").fadeIn('slow');},2600);
+		  setTimeout(function(){$("#close").fadeIn('slow');},2600);
+		});
+
+		$("#close").click(function() {
+			var div = document.getElementById('bigdiv');
+			if (div.style.display == 'none')
+			{
+				$("#bigdiv").css("display","");
+				document.querySelector('#close').textContent = '隱藏資訊';
+			}
+			else
+			{
+				$("#bigdiv").css("display","none");
+				document.querySelector('#close').textContent = '展開資訊';
+			}
+		});
+
+	</script>
+	</body>
 </html>
 
 
